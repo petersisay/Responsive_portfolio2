@@ -91,6 +91,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
     const messageInput = document.getElementById("message");
+    const formInputs = [nameInput, emailInput, messageInput];
+
+    // Establish live region and unique IDs for screen-reader error announcements
+    formInputs.forEach(input => {
+        if (input && input.id) {
+            const parent = input.parentElement;
+            const errorDisplay = parent ? parent.querySelector(".error") : null;
+            if (errorDisplay) {
+                errorDisplay.id = `${input.id}-error`;
+                errorDisplay.setAttribute("aria-live", "polite");
+            }
+
+            // Clear invalid state dynamically as user corrects their input
+            input.addEventListener("input", () => {
+                if (input.getAttribute("aria-invalid") === "true") {
+                    setSuccess(input);
+                }
+            });
+        }
+    });
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -135,6 +155,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValid) {
             alert("Form submitted successfully!");
             form.reset();
+            formInputs.forEach(input => {
+                if (input) {
+                    input.removeAttribute("aria-invalid");
+                    input.removeAttribute("aria-describedby");
+                    input.style.borderColor = "";
+                    const parent = input.parentElement;
+                    const errorDisplay = parent ? parent.querySelector(".error") : null;
+                    if (errorDisplay) {
+                        errorDisplay.innerText = "";
+                        errorDisplay.removeAttribute("role");
+                    }
+                }
+            });
         }
     });
 
@@ -143,17 +176,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===============================
     function setError(input, message) {
         const parent = input.parentElement;
-        const errorDisplay = parent.querySelector(".error");
+        const errorDisplay = parent ? parent.querySelector(".error") : null;
+        const errorId = `${input.id}-error`;
 
-        errorDisplay.innerText = message;
-        input.style.borderColor = "red";
+        if (errorDisplay) {
+            errorDisplay.id = errorId;
+            errorDisplay.setAttribute("role", "alert");
+            errorDisplay.innerText = message;
+        }
+
+        input.setAttribute("aria-invalid", "true");
+        input.setAttribute("aria-describedby", errorId);
+        input.style.borderColor = "#ff4d4d";
     }
 
     function setSuccess(input) {
         const parent = input.parentElement;
-        const errorDisplay = parent.querySelector(".error");
+        const errorDisplay = parent ? parent.querySelector(".error") : null;
 
-        errorDisplay.innerText = "";
+        if (errorDisplay) {
+            errorDisplay.innerText = "";
+            errorDisplay.removeAttribute("role");
+        }
+
+        input.removeAttribute("aria-invalid");
+        input.removeAttribute("aria-describedby");
         input.style.borderColor = "#00ffff";
     }
 

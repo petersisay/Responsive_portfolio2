@@ -580,10 +580,17 @@ animation: slider 30s ease-in-out infinite alternate;
   resize: none;
 }
 .error {
-  color: red;
+  color: #ff4d4d;
   font-size: 1.2rem;
   margin-top: 5px;
   display: block;
+}
+.error:empty {
+  display: none;
+}
+.contact form .inputField input[aria-invalid="true"],
+.contact form .textareaField textarea[aria-invalid="true"] {
+  border-color: #ff4d4d;
 }
 .btns {
   width: 55vw;
