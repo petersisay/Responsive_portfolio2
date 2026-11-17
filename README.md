@@ -38,15 +38,17 @@ JavaScript| Interactivity & DOM manipulation
 
 📂 Project Structure
 
-portfolio-website/
+Responsive_portfolio2/
 │
 ├── index.html
-├── script.js
 ├── CSS/
 │   └── style.css
+├── JAVASCRIPT/
+│   └── script.js
 ├── images/
 │   ├── Skills/
 │   └── projects/
+├── .hintrc
 └── README.md
 
 ---
@@ -85,6 +87,18 @@ open index.html
 - Prevents empty submission
 - Highlights invalid inputs
 - User-friendly alert
+
+---
+
+## 🌐 Browser Compatibility
+
+This website is built with semantic HTML5, responsive CSS3 (Flexbox, CSS Grid, media queries), and vanilla ES6 JavaScript. It is expected to function across modern, standards-compliant web browsers:
+
+- **Google Chrome & Chromium-based browsers** (Microsoft Edge, Brave, Opera)
+- **Mozilla Firefox**
+- **Apple Safari** (macOS and iOS WebKit)
+
+*Note: Developed and previewed on modern viewports. For the best visual and interactive experience, please use a current browser release.*
 
 
 👨💻 Author
