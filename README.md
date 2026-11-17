@@ -55,11 +55,11 @@ portfolio-website/
 
 1. Clone the repository
 
-git clone [https://github.com/petrossisay1646/Responsive_portfolio2.git](https://github.com/petrossisay1646/Responsive_portfolio2.git)
+git clone https://github.com/petersisay/Responsive_portfolio2.git
 
 2. Navigate to project folder
 
-cd your-repo-name
+cd Responsive_portfolio2
 
 3. Open in browser
 
@@ -87,7 +87,7 @@ open index.html
 - User-friendly alert
 
 
-👨‍💻 Author
+👨💻 Author
 
 Petros Sisay
 🎓 Software Engineering Student
@@ -98,7 +98,7 @@ Petros Sisay
 📬 Contact
 
 - 📧 Email: petrossisay1646@gmail.com
-- 💼 GitHub: https://github.com/petrossisay1646
+- 💼 GitHub: https://github.com/petersisay
 - 🌐 Portfolio: http://responsive-portfolio2.vercel.app
 
 ---
@@ -106,4 +106,3 @@ Petros Sisay
 📄 License
 
 This project is licensed under the MIT License.
-
